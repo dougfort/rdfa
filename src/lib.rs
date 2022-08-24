@@ -45,8 +45,9 @@ mod tests {
             },
         ];
 
-        let s = UsizeState::new(0, funcs);
-        let result = [1u8, 0u8, 0u8, 1u8].iter().fold(s, |s, x| s.next(*x));
+        let result = [1u8, 0u8, 0u8, 1u8]
+            .iter()
+            .fold(UsizeState::new(0, funcs), |s, x| s.next(*x));
         assert_eq!(result.curr(), 0);
     }
 }
