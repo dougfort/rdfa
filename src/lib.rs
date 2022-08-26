@@ -43,6 +43,7 @@ mod tests {
 
     #[test]
     fn wikipedia_example() {
+        // https://en.wikipedia.org/wiki/Deterministic_finite_automaton
         let result = [1, 0, 0, 1]
             .iter()
             .fold(UsizeState::new(0), |s, x| s.next(*x));
