@@ -33,17 +33,17 @@ mod tests {
     }
 
     impl State<u8> for UsizeState {
-        fn next(&self, input: u8) -> Self {
-            UsizeState::new((FUNCS[self.curr as usize])(input))
-        }
         fn curr(&self) -> u8 {
             self.curr
+        }
+        fn next(&self, input: u8) -> Self {
+            UsizeState::new((FUNCS[self.curr as usize])(input))
         }
     }
 
     #[test]
     fn wikipedia_example() {
-        let result = [1u8, 0u8, 0u8, 1u8]
+        let result = [1, 0, 0, 1]
             .iter()
             .fold(UsizeState::new(0), |s, x| s.next(*x));
         assert_eq!(result.curr(), 0);
